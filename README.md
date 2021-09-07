@@ -31,6 +31,9 @@ The user will be people who enjoy driving on race tracks and want a place to vie
 ### ERD
 ![WIREFRAME](https://i.imgur.com/eJgHWxd.png)
 
+### COLOR PALETTE
+![WIREFRAME](https://imgur.com/a/IIQJVPN)
+
 ### Technologies Used
 - NEM stack
 - Node.js
