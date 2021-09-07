@@ -45,8 +45,13 @@ The user will be people who enjoy driving on race tracks and want a place to vie
 - Create all data models 
 - Set up database
 # Sprint Two
-- Create functional routes
-- Utilize bootstrap to create front end
-- test for CRUD
+- Create routes
+- Utilize bootstrap to create basic front end
+- create and testCRUD
 # Sprint Three
-- 
+- Add Auth 
+- start making it look good
+# Sprint Four
+- Make it look good. 100% good. 
+# Sprint Five
+- any feature creeps
