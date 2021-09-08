@@ -23,7 +23,7 @@ The user will be people who enjoy driving on race tracks and want a place to vie
 ![WIREFRAME](https://i.imgur.com/Y2kABeC.png)
 
 ### DATA MODELS
-- USER: name, location
+- USER: name, location, first name, last name, username
 - CAR: make, model, tire, list of modifications. One user can have many cars.
 - Tracks: city, state, country, length. 
 - LAPTIME: will use USER, CAR and TRACK. input will be lap time.
