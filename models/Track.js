@@ -14,7 +14,10 @@ const trackSchema = new mongoose.Schema({
     //TODO
     type: Number
   }
-});
+},
+  {
+    timestamps: true,
+  });
 
 const Track = mongoose.model("Track", trackSchema);
 

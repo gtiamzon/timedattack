@@ -3,7 +3,6 @@ const app = express();
 
 // this will listen for any GET requests coming to the server
 app.get('/', function(request,response){
-
     // this will send the words "Hello World" to the client that requested the home page
     response.send("Hello World"); 
 });

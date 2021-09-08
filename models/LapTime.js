@@ -20,7 +20,10 @@ const lapTimeSchema = new mongoose.Schema({
   date: {
     type: Date,
   }
-});
+},
+  {
+    timestamps: true,
+  });
 
 const LapTime = mongoose.model("LapTime", lapTimeSchema);
 
