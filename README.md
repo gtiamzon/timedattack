@@ -32,7 +32,7 @@ The user will be people who enjoy driving on race tracks and want a place to vie
 ![WIREFRAME](https://i.imgur.com/eJgHWxd.png)
 
 ### COLOR PALETTE
-![WIREFRAME](https://imgur.com/a/IIQJVPN)
+![WIREFRAME](https://i.imgur.com/oPldk1d.png)
 
 ### Technologies Used
 - NEM stack
