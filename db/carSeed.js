@@ -10,7 +10,7 @@ Car.deleteMany({}, (error, deletedCars) =>{
       username: "geraldo",
       make: "Scion",
       model: "FRS",
-      tire: "Khumo V730",
+      tire: "Kumho V730",
       modifications: ["Suspension", "Wheels"]
       }
     ],
