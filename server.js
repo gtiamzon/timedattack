@@ -21,13 +21,37 @@ app.set("view engine", "ejs");
 //middleware
 
 
-// this will listen for any GET requests coming to the server
-app.get('/', function(request,response){
-    // this will send the words "Hello World" to the client that requested the home page
-    response.send("Hello World"); 
+//landing page
+app.get('/', (req,res) => {
+  res.render('landing.ejs')
 });
 
-app.use("")
+//home page
+app.get("/home", (req,res) => {
+  res.render('index.ejs')
+});
+
+//profile page
+app.get("/profile", (req,res) => {
+  res.render('profile.ejs')
+});
+
+//track page
+app.get("/track", (req,res) => {
+  res.render('track_show.ejs')
+});
+
+//car page
+app.get("/car", (req,res) => {
+  res.render('car_show.ejs')
+});
+
+app.get("/*", (req, res) => {
+  const context = {
+    error: req.error,
+  };
+  res.render("404", context);
+});
 
 app.listen(4000, function(){
   console.log("I am live on port 4000");

@@ -1,13 +1,19 @@
 const mongoose = require("mongoose");
 
 const trackSchema = new mongoose.Schema({
+  name: {
+    type: String
+  },
   city: {
     type: String
   },
   state: {
     type: String 
   },
-  country: {
+  icon: {
+    type: String
+  },
+  image: {
     type: String
   },
   length: {
