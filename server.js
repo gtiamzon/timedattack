@@ -23,6 +23,13 @@ app.use(express.urlencoded({extended: false}));
 app.use(methodOverride("_method"));
 
 //routes
+app.get("/", (req, res) => {
+  const context = {
+    error: req.error,
+  };
+  res.render("landing", context);
+});
+
 app.use("/home", controllers.track);
 
 app.get("/*", (req, res) => {
