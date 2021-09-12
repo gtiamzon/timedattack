@@ -1,3 +1,5 @@
+
+/* LANDING PAGE NOTE */
 #landingCarousel img {
   z-index: -10;
 }  
@@ -13,11 +15,31 @@
   
 }
 
+#timed {
+  color: #2d3142;
+}
+
 #landingButton {
+  text-decoration: none;
   color: #ef8354;
+  max-width: 100px;
+  background: rgba(18, 19, 26, .5);
+}
+
+#landingButton:hover {
+  text-decoration: none;
+  color: #2d3142;
+  background-color: #ef8354;
   max-width: 100px;
 }
 
 #attackLogo {
   color: #ef8354;
 }
+
+/* NOTE NAV BAR */
+
+.navbar-brand {
+  color: chartreuse;
+}
+
