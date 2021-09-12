@@ -1,4 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-  <p>THIS IS THE INDEX PAGE</p>
-</html>
+
+<%- include("partials/_head.ejs") %> 
+
+<body>
+  <%- include("partials/_nav.ejs") %> 
+
+  <div class="container">
+    <div class="row row-cols-3">
+      <% tracks.forEach(allTracks => { %> 
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="<%= allTracks.icon %>" class="card-img-top" alt="icon">
+            <div class="card-body">
+              <h5 class="card-title"><%= allTracks.name %> </h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <%=allTracks.city%>, 
+                <%=allTracks.state%>
+              </li>
+              <li class="list-group-item">
+                <%=allTracks.length%> miles 
+              </li>
+            </ul>
+          </div>
+        </div>
+      <% }); %>  
+  </div>
+
+</body>

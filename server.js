@@ -9,42 +9,21 @@ const app = express();
 //PORT
 const PORT = process.env.PORT || 4000;
 
-// //internal modules
-// const controllers = require("./controllers");
+//internal modules
+const controllers = require("./controllers");
 
 //app config
 app.set("view engine", "ejs");
 
-// //mongodb connection
-// const dbConnection = require("./config/db.connection.js")
-
 //middleware
+app.use(express.static("public"));
 
+app.use(express.urlencoded({extended: false}));
 
-//landing page
-app.get('/', (req,res) => {
-  res.render('landing.ejs')
-});
+app.use(methodOverride("_method"));
 
-//home page
-app.get("/home", (req,res) => {
-  res.render('index.ejs')
-});
-
-//profile page
-app.get("/profile", (req,res) => {
-  res.render('profile.ejs')
-});
-
-//track page
-app.get("/track", (req,res) => {
-  res.render('track_show.ejs')
-});
-
-//car page
-app.get("/car", (req,res) => {
-  res.render('car_show.ejs')
-});
+//routes
+app.use("/home", controllers.track);
 
 app.get("/*", (req, res) => {
   const context = {
@@ -54,5 +33,5 @@ app.get("/*", (req, res) => {
 });
 
 app.listen(4000, function(){
-  console.log("I am live on port 4000");
+  console.log("ON MY MOMMA ITS LIT ON PORT 4000. TYBG");
 });

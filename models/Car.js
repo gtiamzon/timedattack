@@ -13,10 +13,9 @@ const carSchema = new mongoose.Schema({
   tire: {
     type: String,
   },
-  modifications: [
-    {},
-    {},
-  ]
+  modifications: {
+    type: [String]
+  },
 },
   {
     timestamps: true,
