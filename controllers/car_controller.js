@@ -70,5 +70,17 @@ router.put("/car/:id", (req, res, next) => {
   );
 });
 
+// delete route 
+router.delete('/car/:id', async (req, res, next) => {
+  try {
+    await Car.findByIdAndDelete(req.params.id);
+    return res.redirect('/profile');
+  } catch (error) {
+    console.log(error);
+    req.error = error;
+    return next;
+  }
+});
+
 
 module.exports = router;
