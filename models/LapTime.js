@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const lapTimeSchema = new mongoose.Schema({
   //TODO
-  username: {
+  user: {
     type: mongoose.Types.ObjectId,
 		ref: "User",
   },

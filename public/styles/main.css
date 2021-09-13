@@ -1,5 +1,15 @@
 
 /* LANDING PAGE NOTE */
+
+a {
+  text-decoration: none;
+  color:#ef8354;
+}
+
+a:hover {
+  color: #2d3142;
+}
+
 #landingCarousel img {
   z-index: -10;
 }  
@@ -24,6 +34,12 @@ body {
 
 #timed {
   color: #2d3142;
+  font-size: 15vh;
+}
+
+#attackLogo {
+  color: #ef8354;
+  font-size: 15vh;
 }
 
 #landingButton {
@@ -40,9 +56,6 @@ body {
   max-width: 100px;
 }
 
-#attackLogo {
-  color: #ef8354;
-}
 
 /* NOTE NAV BAR */
 

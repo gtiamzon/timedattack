@@ -18,11 +18,14 @@
   },
   "homepage": "https://github.com/gtiamzon/timedattack#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^5.1.1",
     "bootstrap-icons": "^1.5.0",
+    "connect-mongo": "^4.5.0",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "method-override": "^3.0.0",
     "mongoose": "^6.0.5"
   }

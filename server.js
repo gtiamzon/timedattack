@@ -1,7 +1,9 @@
 //external modules
 const express = require("express");
-const mongoose = require("mongoose");
 const methodOverride = require("method-override");
+const mongoose = require("mongoose");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 //module instance
 const app = express(); 
@@ -14,6 +16,22 @@ const controllers = require("./controllers");
 
 //app config
 app.set("view engine", "ejs");
+
+/* session controller */
+app.use(
+  session({
+    // where to store the sessions in mongodb
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
+    // secret key is used to sign every cookie to say its is valid
+    secret: "super secret",
+    resave: false,
+    saveUninitialized: false,
+    // configure the expiration of the cookie
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7 * 2, // two weeks
+    },
+  })
+);
 
 //middleware
 app.use(express.static("public"));
@@ -33,6 +51,7 @@ app.get("/", (req, res) => {
 app.use("/home", controllers.home);
 app.use("/profile", controllers.car);
 app.use("/track", controllers.track);
+app.use("/", controllers.auth);
 
 app.get("/*", (req, res) => {
   const context = {
