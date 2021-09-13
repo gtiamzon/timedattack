@@ -4,6 +4,13 @@
   z-index: -10;
 }  
 
+body {
+  background-image: url(/assets/sayagata-400px.png);
+  background-color: gray;
+  background-blend-mode: overlay;
+}
+
+
 #centeredText {
   display: flex;
   flex-direction: column;
@@ -43,3 +50,8 @@
   color: chartreuse;
 }
 
+/* track show carousel */
+#trackCarousel img {
+  height: 33vh;
+  object-fit: cover;
+}

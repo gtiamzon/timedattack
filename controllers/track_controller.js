@@ -3,19 +3,23 @@ const router = express.Router();
 
 const { Track } = require("../models");
 
-//show
-router.get('/', async(req, res, next) => {
+//show home
+router.get('/:id', async(req, res, next) => {
   try {
-    const allTracks = await Track.find({});
+    const foundTrack= await Track.findById(req.params.id);
     const context = {
-      tracks: allTracks
+      track: foundTrack,
     };
-    return res.render("index", context);
+    return res.render("track_show", context);
   } catch(error) {
     console.log(error);
     req.error= error;
     return next()
   }
 });
+
+//
+
+
 
 module.exports = router;
