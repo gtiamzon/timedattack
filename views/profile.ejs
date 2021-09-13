@@ -1,4 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-  <p>THIS IS THE PROFILE PAGE</p>
-</html>
+
+<%- include("partials/_head.ejs") %> 
+
+<body>
+  <%- include("partials/_nav.ejs") %> 
+  
+  <div class="container">
+    <div class="row row-cols-3">
+      <% cars.forEach(allCars => { %> 
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="<%= allCars.image %>" class="card-img-top img-thumbnail " alt="icon">
+            <div class="card-body">
+              <h5 class="card-title"><%= allCars.model %> </h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <%=allCars.make%>, 
+                <%=allCars.tire%>
+              </li>
+              <li class="list-group-item">
+                <%=allCars.modifications%>
+              </li>
+            </ul>
+            <div class="car-footer" >
+            <a class="btn btn-primary" href="/profile/car/<%= allCars.id %> " role="button">Edit</a>
+            <a class="btn btn-warning" href="/profile/car/<%= allCars.id %> " role="button">Delete</a>
+            </div>
+        </div>
+      </div>
+      <% }) %> 
+  </div>
+
+</body>

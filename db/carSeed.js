@@ -11,7 +11,8 @@ Car.deleteMany({}, (error, deletedCars) =>{
       make: "Scion",
       model: "FRS",
       tire: "Kumho V730",
-      modifications: ["Suspension", "Wheels"]
+      modifications: ["Suspension", "Wheels"],
+      image: "public/assets/50105554668_0a0a863153_o.png"
       }
     ],
     function (error, createdCars) {

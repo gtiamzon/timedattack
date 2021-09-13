@@ -31,6 +31,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/home", controllers.track);
+app.use("/profile", controllers.car);
 
 app.get("/*", (req, res) => {
   const context = {

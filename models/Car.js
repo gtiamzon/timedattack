@@ -16,6 +16,9 @@ const carSchema = new mongoose.Schema({
   modifications: {
     type: [String]
   },
+  image: {
+    type: String,
+  }
 },
   {
     timestamps: true,
