@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("partials/_head.ejs") %> 
+
+  <body>
+    <%- include("partials/_nav.ejs") %>
+    <form action="/profile/<%= user.id %>/edit?_method=PUT" method="POST">
+
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">First Name</span>
+        <input 
+          type="text" 
+          class="form-control" 
+          name="firstName" 
+          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" 
+          value="<%= user.firstName %> "
+        >
+      </div>
+  
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Last Name</span>
+        <input 
+          type="text" 
+          class="form-control" 
+          name="lastName" 
+          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
+          value="<%= user.lastName %>"
+        >
+      </div>
+  
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Email</span>
+        <input 
+          type="text" 
+          class="form-control" 
+          name="email" 
+          aria-label="Sizing example input" 
+          aria-describedby="inputGroup-sizing-sm"
+          value="<%= user.email %>"
+        >
+      </div>
+  
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Avatar</span>
+        <input 
+          type="text" 
+          class="form-control"
+          name="avatar" 
+          aria-label="Sizing example input" 
+          aria-describedby="inputGroup-sizing-sm"
+          value="<%= user.avatar %> "
+        >
+      </div>
+  
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Password</span>
+        <input 
+          type="text" 
+          class="form-control" 
+          name="password" 
+          aria-label="Sizing example input" 
+          aria-describedby="inputGroup-sizing-sm"
+          value="<%= user.password %> "
+        >
+      </div>
+  
+      <button type="submit" class="btn btn-primary mt-1">Update User</button>
+  
+    </form>
+  </body>
+
+
+</html>

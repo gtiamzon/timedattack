@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const carSchema = new mongoose.Schema({
   username: {
-    type: String,
+    type: String ,
   },
   make: {
     type: String,

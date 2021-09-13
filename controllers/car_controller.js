@@ -1,15 +1,17 @@
 const express = require("express");
 const router = express.Router();
 
-const { Car } = require("../models");
+const { Car, User } = require("../models");
 const { create } = require("../models/User");
 
 // show
-router.get('/', async(req, res, next) => {
+router.get('/:id', async(req, res, next) => {
   try {
+    const foundUser = await User.findById(req.params.id);
     const allCars = await Car.find({});
     const context = {
-      cars: allCars
+      cars: allCars,
+      user: foundUser
     };
     return res.render("profile", context);
   } catch(error) {
@@ -78,8 +80,39 @@ router.delete('/car/:id', async (req, res, next) => {
   } catch (error) {
     console.log(error);
     req.error = error;
-    return next;
+    return next();
   }
+});
+
+//edit route for USER presentational
+router.get('/:id/edit', (req, res, next) => {
+  User.findById(req.params.id, (error, foundUser) => {
+    if(error) {
+      console.log(error);
+      req.error = error;
+      return next();
+    }
+
+    const context = {
+      user: foundUser,
+    };
+
+    return res.render("edit_user", context);
+  });
+});
+
+//edit route user functional
+router.put("/:id/edit", (req, res, next) =>{
+  User.findByIdAndUpdate(
+    req.params.id, {$set: req.body}, {new: true}, (error, updatedUser) => {
+      if(error) {
+        console.log(error);
+        req.error = error;
+        return next();
+      }
+      return res.redirect(`/profile/${updatedUser.id}`);
+    }
+  );
 });
 
 

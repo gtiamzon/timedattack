@@ -4,55 +4,74 @@
 
 <body>
   <%- include("partials/_nav.ejs") %> 
-  
   <div class="container">
-    <div class="row row-cols-3">
-      <% cars.forEach(allCars => { %> 
-        <div class="col">
-          <div class="card m-4" style="width: 18rem;">
-            <img src="<%= allCars.image %>" class="card-img-top img-thumbnail " alt="icon">
-            <div class="card-body">
-              <h5 class="card-title"><%= allCars.model %> </h5>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <%=allCars.make%>, 
-                <%=allCars.tire%>
-              </li>
-              <li class="list-group-item">
-                <%=allCars.modifications%>
-              </li>
-            </ul>
-            <div class="car-footer" >
-            <a class="btn btn-primary" href="/profile/car/<%= allCars.id %> " role="button">Edit</a>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-<%= allCars.id %>">
-              Delete
-            </button>
-            </div>
-        </div>
-      </div>
-
-      <!-- DELETE MODAL -->
-      <div class="modal fade" id="exampleModal-<%= allCars.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">YOO WAIIIT</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              Are you sure you want to delete your <strong><%= allCars.make %> <%= allCars.model %></strong> ? 
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
-              <form action="/profile/car/<%= allCars.id %>?_method=DELETE" method="POST">
-                <input type="submit" class="btn btn-danger" value="YERRRR DELETE IT">
-              </form>
-            </div>
+    <div class="row">
+      <div class="col-3">
+        <img class="img-thumbnail" src="<%= user.avatar %> " alt="avatar">
+        <ul class="list-group mt-5">
+          <li class="list-group-item"> 
+            <%= user.lastName %>, <%= user.firstName %>
+          </li>
+        </ul>
+        <div class="card-footer" >
+          <a class="btn btn-primary" href="/profile/<%= user.id %>/edit " role="button">Edit</a>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Delete
+          </button>
           </div>
+      </div>
+      <div class="col-9">
+        <div class="container">
+          <div class="row row-cols-3">
+            <% cars.forEach(allCars => { %> 
+              <div class="col">
+                <div class="card m-4" style="width: 18rem;">
+                  <img src="<%= allCars.image %>" class="card-img-top img-thumbnail " alt="icon">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= allCars.model %> </h5>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <%=allCars.make%>, 
+                      <%=allCars.tire%>
+                    </li>
+                    <li class="list-group-item">
+                      <%=allCars.modifications%>
+                    </li>
+                  </ul>
+                  <div class="card-footer" >
+                  <a class="btn btn-primary" href="/profile/car/<%= allCars.id %> " role="button">Edit</a>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-<%= allCars.id %>">
+                    Delete
+                  </button>
+                  </div>
+              </div>
+            </div>
+      
+            <!-- DELETE MODAL for car -->
+            <div class="modal fade" id="exampleModal-<%= allCars.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">YOO WAIIIT</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Are you sure you want to delete your <strong><%= allCars.make %> <%= allCars.model %></strong> ? 
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+                    <form action="/profile/car/<%= allCars.id %>?_method=DELETE" method="POST">
+                      <input type="submit" class="btn btn-danger" value="YERRRR DELETE IT">
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% }) %> 
         </div>
       </div>
-      <% }) %> 
+    </div>
   </div>
 
 </body>
