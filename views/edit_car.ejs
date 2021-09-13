@@ -4,36 +4,35 @@
 
 <body>
   <%- include("partials/_nav.ejs") %> 
-  <form action="/profile/car/<%= car.id %>?_method=PUT " method="POST">
-
+  <form action="/profile/car/edit/<%= car.id %>?_method=PUT" method="POST">
+    
     <div class="input-group input-group-sm mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-sm">Username</span>
-      <input type="text" class="form-control" name="username" value="<%= car.username %> " aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      <input type="hidden" class="form-control" name="username" value="<%= car.username %>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" >
     </div>
 
     <div class="input-group input-group-sm mb-3">
       <span class="input-group-text" id="inputGroup-sizing-sm">Make</span>
-      <input type="text" class="form-control" name="make"  value="<%= car.make %> "  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      <input type="text" class="form-control" name="make"  value="<%= car.make %>"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
     </div>
 
     <div class="input-group input-group-sm mb-3">
       <span class="input-group-text" id="inputGroup-sizing-sm">Model</span>
-      <input type="text" class="form-control" name="model"  value="<%= car.model %> "  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      <input type="text" class="form-control" name="model"  value="<%= car.model %>"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
     </div>
 
     <div class="input-group input-group-sm mb-3">
       <span class="input-group-text" id="inputGroup-sizing-sm">Tire</span>
-      <input type="text" class="form-control" name="tire"  value="<%= car.tire %> "  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      <input type="text" class="form-control" name="tire"  value="<%= car.tire %>"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
     </div>
 
     <div class="input-group input-group-sm mb-3">
       <span class="input-group-text" id="inputGroup-sizing-sm">image</span>
-      <input type="text" class="form-control" name="image"  value="<%= car.image %> "  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      <input type="text" class="form-control" name="image"  value="<%= car.image %>"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
     </div>
 
     <div class="input-group input-group-sm mb-3">
       <span class="input-group-text" id="inputGroup-sizing-sm">Modifications</span>
-      <input type="text" class="form-control" name="modifications"  value="<%= car.modifications %> "  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      <input type="text" class="form-control" name="modifications"  value="<%= car.modifications %>"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
     </div>
 
     <button type="submit" class="btn btn-primary mt-1">Update Car</button>

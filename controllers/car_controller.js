@@ -30,19 +30,20 @@ router.get('/car/new', (req, res) => {
 // create car functional
 router.post('/car', async(req, res) => {
   try{
+    req.body.username = req.session.currentUser.id
     const createdCar = await Car.create(req.body);
     console.log("Made a Car", createdCar);
-    return res.redirect("/profile");
+    return res.redirect(`/profile/${req.session.currentUser.id}`);
   } catch (error) {
     const context = {
       error,
     }
-    return res.render('/profile', context)
+    return res.render(`/profile/${req.session.currentUser.id}`, context)
   }
 });
 
 // edit route presentational
-router.get('/car/:id', (req, res, next) => {
+router.get('/car/edit/:id', (req, res, next) => {
   Car.findById(req.params.id, (error, foundCar) => {
     if(error) {
       console.log(error);
@@ -59,7 +60,7 @@ router.get('/car/:id', (req, res, next) => {
 });
 
 // edit route functional
-router.put("/car/:id", (req, res, next) => {
+router.put("/car/edit/:id", (req, res, next) => {
   Car.findByIdAndUpdate(
     req.params.id, {$set: req.body}, { new: true}, (error, updatedCar) => {
       if(error) {
@@ -67,7 +68,7 @@ router.put("/car/:id", (req, res, next) => {
         req.error = error;
         return next();
       }
-      return res.redirect('/profile')
+      return res.redirect(`/profile/${updatedCar.username}`)
     }
   );
 });
@@ -75,14 +76,20 @@ router.put("/car/:id", (req, res, next) => {
 // delete route 
 router.delete('/car/:id', async (req, res, next) => {
   try {
-    await Car.findByIdAndDelete(req.params.id);
-    return res.redirect('/profile');
+    const deletedCar = await Car.findByIdAndDelete(req.params.id);
+    return res.redirect(`/profile/${deletedCar.username}`);
   } catch (error) {
     console.log(error);
     req.error = error;
     return next();
   }
 });
+
+// NOTE CAR SHOW ROUTES
+
+
+
+//NOTE USER ROUTES
 
 //edit route for USER presentational
 router.get('/:id/edit', (req, res, next) => {
@@ -115,5 +122,17 @@ router.put("/:id/edit", (req, res, next) =>{
   );
 });
 
+// DELETE ACCOUNT
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const deletedUser = await User.findByIdAndDelete(req.params.id);
+    const deletedCar = await Car.deleteMany({username: req.params.id});
+    return res.redirect(`/`);
+  } catch (error) {
+    console.log(error);
+    req.error = error;
+    return next();
+  }
+});
 
 module.exports = router;

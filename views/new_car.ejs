@@ -7,8 +7,7 @@
   <form action="/profile/car" method="POST">
 
     <div class="input-group input-group-sm mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-sm">Username</span>
-      <input type="text" class="form-control" name="username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      <input type="hidden" class="form-control" name="username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value='<%= user.id %> ' >
     </div>
 
     <div class="input-group input-group-sm mb-3">

@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 const carSchema = new mongoose.Schema({
   username: {
-    type: String ,
+    type: mongoose.Types.ObjectId,
+    ref: "User",
   },
   make: {
     type: String,
