@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { Car, User } = require("../models");
+const { Car, User, LapTime } = require("../models");
 const { create } = require("../models/User");
 
 // show
@@ -88,10 +88,12 @@ router.delete('/car/:id', async (req, res, next) => {
 // NOTE CAR SHOW ROUTES
 
 router.get('/car/:id', async (req, res, next) => {
-  const foundCar= await Car.findById(req.params.id).populate("username") 
+  const foundCar= await Car.findById(req.params.id).populate("username");
+  const allLapTimes = await LapTime.find({car: req.params.id}).populate("track");
     try {
       const context = {
         car: foundCar,
+        lapTimes: allLapTimes
       };
       return res.render("car_show", context);
     } catch (error) {

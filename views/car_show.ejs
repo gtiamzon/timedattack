@@ -31,13 +31,57 @@
         </ul>
       </div>
       <div class="col-9">
-        LAP TIME
-        <ul class="list-group">
-          <li class="list-group-item">Name:>  </li>
-          <li class="list-group-item">City:  </li>
-          <li class="list-group-item">State: </li>
-          <li class="list-group-item">Length:  miles</li>
-        </ul>
+        <div class="container">
+          <div class="row row-cols-3">
+            <% lapTimes.forEach(allLapTimes => { %> 
+              <% if(allLapTimes.car == car.id ) { %> 
+                <div class="col">
+                  <div class="card m-4" style="width: 18rem;">
+                      <img src="<%= allLapTimes.track.icon %>" class="card-img-top " alt="icon">
+                    </a>
+                    <div class="card-body">
+                      <h5 class="card-title"><%= allLapTimes.track.name%> </h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <%=allLapTimes.minutes%>:<%= allLapTimes.seconds%>  
+                      </li>
+                      <li class="list-group-item">
+                        <%=allLapTimes.date%>
+                      </li>
+                    </ul>
+                    <div class="card-footer" >
+                      <a class="btn btn-primary" href="/laptime/edit/<%= allLapTimes.id %>" role="button">Edit</a>
+                      </div>
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-<%= allLapTimes.id %>">
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                  <!-- DELETE MODAL for car -->
+                  <div class="modal fade" id="exampleModal-<%= allLapTimes.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">YOO WAIIIT</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Are you sure you want to delete your laptime of <%=allLapTimes.minutes%>:<%= allLapTimes.seconds%> with the <%= car.make %> <%= car.model %>   ? 
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+                          <form action="/laptime/<%= allLapTimes.id %>?_method=DELETE" method="POST">
+                            <input type="submit" class="btn btn-danger" value="YERRRR DELETE IT">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <% } %> 
+                  <% }) %> 
+          </div>
+        </div>
       </div>
       <div class="col-1">
         <button><a href="/laptime/new">Add Lap Time</a></button>

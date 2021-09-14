@@ -5,19 +5,19 @@
 <body>
   LAPTIME NEW BABY
   <%- include("partials/_nav.ejs") %> 
-  <form action="/profile/car" method="POST">
+  <form action="/laptime/new" method="POST">
 
     <div class="input-group input-group-sm mb-3">
       <span class="input-group-text" id="inputGroup-sizing-sm">USER</span>
-      <input type="text" class="form-control" name="make" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      <input type="text" class="form-control" name="user" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="<%= user.id %>">
     </div>
 
     <div class="input-group input-group-sm mb-3">
       <span class="input-group-text" id="inputGroup-sizing-sm">CAR</span>
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Select Your Car</option>
+      <select class="form-select" name="car" aria-label="Default select example">
+        <option selected disabled hidden value="">Select Your Car</option>
         <% cars.forEach(foundCars => { %> 
-        <option value="<%= foundCars.src %> ">
+        <option value="<%= foundCars.id %>">
           <%= foundCars.make %> <%= foundCars.model%>  
         </option>
         <% }) %> 
@@ -26,10 +26,10 @@
 
     <div class="input-group input-group-sm mb-3">
       <span class="input-group-text" id="inputGroup-sizing-sm">TRACK</span>
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Select Your Track</option>
+      <select class="form-select" name="track" aria-label="Default select example">
+        <option selected disabled hidden value="">Select Your Track</option>
         <% tracks.forEach(allTracks => { %> 
-        <option value="<%=  allTracks.src %> ">
+        <option value="<%= allTracks.id %>">
           <%= allTracks.name %>  
         </option>
         <% }) %> 
@@ -38,15 +38,16 @@
 
     <div class="input-group input-group-sm mb-3">
       <span class="input-group-text" id="inputGroup-sizing-sm">TIME</span>
-      <input type="time" class="form-control" name="image" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      <input type="number" class="form-control" name="minutes" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"> :
+      <input type="number" class="form-control" name="seconds" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
     </div>
 
     <div class="input-group input-group-sm mb-3">
       <span class="input-group-text" id="inputGroup-sizing-sm">DATE</span>
-      <input type="date" class="form-control" name="modifications" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      <input type="date" name="date" class="form-control" name="modifications" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
     </div>
     
-    <button type="submit" class="btn btn-primary mt-1">Create Car</button>
+    <button type="submit" class="btn btn-primary mt-1">Create Lap</button>
 
   </form>
 </body>

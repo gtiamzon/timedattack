@@ -36,12 +36,17 @@
         </ul>
       </div>
       <div class="col-8">
-        LAP TIMES GO HERE
-        <ul class="list-group">
-          <li class="list-group-item">Name: <%= track.name %>  </li>
-          <li class="list-group-item">City: <%= track.city %> </li>
-          <li class="list-group-item">State: <%= track.state %> </li>
-          <li class="list-group-item">Length: <%= track.length %> miles</li>
+        <ul class="list-group mt-5">
+          <% lapTimes.forEach(foundLapTimes => { %> 
+            <li class="list-group-item">
+              <%= foundLapTimes.user.firstName%>
+              <%= foundLapTimes.user.lastName%>
+              <%= foundLapTimes.car.make %>
+              <%= foundLapTimes.car.model %>
+              <%= foundLapTimes.car.tire %>
+              <%= foundLapTimes.minutes%>:<%= foundLapTimes.seconds %>  
+            </li>
+          <% }) %> 
         </ul>
       </div>
     </div>
