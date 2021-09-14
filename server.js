@@ -57,6 +57,7 @@ app.use("/home", controllers.home);
 app.use("/profile", controllers.car);
 app.use("/track", controllers.track);
 app.use("/", controllers.auth);
+app.use("/laptime", controllers.laptime);
 
 app.get("/*", (req, res) => {
   const context = {

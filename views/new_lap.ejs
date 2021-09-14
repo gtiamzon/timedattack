@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<%- include("partials/_head.ejs") %> 
+
+<body>
+  LAPTIME NEW BABY
+  <%- include("partials/_nav.ejs") %> 
+  <form action="/profile/car" method="POST">
+
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm">USER</span>
+      <input type="text" class="form-control" name="make" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm">CAR</span>
+      <input type="text" class="form-control" name="model" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm">TRACK</span>
+      <input type="text" class="form-control" name="tire" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm">TIME</span>
+      <input type="text" class="form-control" name="image" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm">DATE</span>
+      <input type="text" class="form-control" name="modifications" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-1">Create Car</button>
+
+  </form>
+</body>

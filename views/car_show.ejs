@@ -21,7 +21,7 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-4">
+      <div class="col-2">
         <ul class="list-group mt-5">
           <li class="list-group-item">Owner: <%= car.username.firstName %>  <%= car.username.lastName %> </li>
           <li class="list-group-item">Make: <%= car.make %> </li>
@@ -30,7 +30,7 @@
           <li class="list-group-item">Mods: <%= car.modifications %> </li>
         </ul>
       </div>
-      <div class="col-8">
+      <div class="col-9">
         LAP TIME
         <ul class="list-group">
           <li class="list-group-item">Name:>  </li>
@@ -38,6 +38,9 @@
           <li class="list-group-item">State: </li>
           <li class="list-group-item">Length:  miles</li>
         </ul>
+      </div>
+      <div class="col-1">
+        <button><a href="/laptime/new">Add Lap Time</a></button>
       </div>
     </div>
   </div>
