@@ -6,8 +6,8 @@
   <%- include("partials/_nav.ejs") %> 
   <div class="container">
     <div class="row">
-      <div class="col-2">
-        <img class="img-thumbnail" src="<%= user.avatar %> " alt="avatar">
+      <div class="col-2 m-4">
+          <img class="img-thumbnail" src="<%= user.avatar %> " alt="avatar">
         <ul class="list-group mt-5">
           <li class="list-group-item"> 
             <%= user.lastName %>, <%= user.firstName %>
@@ -18,7 +18,7 @@
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-<%= user.id %>">
             Delete
           </button>
-          </div>
+        </div>
 
           <!-- DELETE MODAL for Profile -->
           <div class="modal fade" id="exampleModal-<%= user.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -49,7 +49,9 @@
               <% if(allCars.username == user.id ) { %> 
                 <div class="col">
                   <div class="card m-4" style="width: 18rem;">
-                    <img src="<%= allCars.image %>" class="card-img-top img-thumbnail " alt="icon">
+                    <a href="/profile/car/<%= allCars.id %> ">
+                      <img src="<%= allCars.image %>" class="card-img-top " alt="icon">
+                    </a>
                     <div class="card-body">
                       <h5 class="card-title"><%= allCars.model %> </h5>
                     </div>
@@ -96,7 +98,7 @@
         </div>
       </div>
     </div>
-    <div class="col-1">
+    <div class="">
       <button><a href="/profile/car/new">ADD CAR</a></button>
     </div>
   </div>

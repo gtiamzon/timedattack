@@ -15,9 +15,7 @@ a:hover {
 }  
 
 body {
-  background-image: url(/assets/sayagata-400px.png);
-  background-color: gray;
-  background-blend-mode: overlay;
+  background-color: #ffffff;
 }
 
 
@@ -59,12 +57,22 @@ body {
 
 /* NOTE NAV BAR */
 
-.navbar-brand {
-  color: chartreuse;
+nav {
+  background-color: #4f5d75;
 }
 
 /* track show carousel */
 #trackCarousel img {
   height: 33vh;
   object-fit: cover;
+}
+
+/* CARD */
+
+.card {
+  background-color: #4f5d75;
+}
+
+.list-group-item {
+  background-color: #bfc0c0;
 }

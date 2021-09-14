@@ -1,4 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-  <p>THIS IS THE CAR SHOW PAGE</p>
+
+<%- include("partials/_head.ejs") %>
+
+<body>
+  <%- include("partials/_nav.ejs") %>
+  <div id="trackCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner vh-50">
+      <div class="carousel-item active">
+        <img src="<%= car.image %> " class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#trackCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#trackCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <ul class="list-group mt-5">
+          <li class="list-group-item">Owner: <%= car.username.firstName %>  <%= car.username.lastName %> </li>
+          <li class="list-group-item">Make: <%= car.make %> </li>
+          <li class="list-group-item">Model: <%= car.model %> </li>
+          <li class="list-group-item">Tire: <%= car.tire %> </li>
+          <li class="list-group-item">Mods: <%= car.modifications %> </li>
+        </ul>
+      </div>
+      <div class="col-8">
+        LAP TIME
+        <ul class="list-group">
+          <li class="list-group-item">Name:>  </li>
+          <li class="list-group-item">City:  </li>
+          <li class="list-group-item">State: </li>
+          <li class="list-group-item">Length:  miles</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+  
 </html>

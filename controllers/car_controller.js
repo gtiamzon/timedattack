@@ -87,6 +87,19 @@ router.delete('/car/:id', async (req, res, next) => {
 
 // NOTE CAR SHOW ROUTES
 
+router.get('/car/:id', async (req, res, next) => {
+  const foundCar= await Car.findById(req.params.id).populate("username") 
+    try {
+      const context = {
+        car: foundCar,
+      };
+      return res.render("car_show", context);
+    } catch (error) {
+      console.log(error);
+      req.error = error;
+      return next();
+  };
+});
 
 
 //NOTE USER ROUTES
