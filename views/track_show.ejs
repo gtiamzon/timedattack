@@ -37,14 +37,14 @@
       </div>
       <div class="col-8">
         <ul class="list-group mt-5">
-          <% lapTimes.forEach(foundLapTimes => { %> 
+          <% lapTimes.forEach(allLapTimes => { %> 
             <li class="list-group-item">
-              <%= foundLapTimes.user.firstName%>
-              <%= foundLapTimes.user.lastName%>
-              <%= foundLapTimes.car.make %>
-              <%= foundLapTimes.car.model %>
-              <%= foundLapTimes.car.tire %>
-              <%= foundLapTimes.minutes%>:<%= foundLapTimes.seconds %>  
+              <%= allLapTimes.user.firstName%>
+              <%= allLapTimes.user.lastName%>
+              <%= allLapTimes.car.make %>
+              <%= allLapTimes.car.model %>
+              <%= allLapTimes.car.tire %>
+              <%= allLapTimes.seconds %> (min.sec)  
             </li>
           <% }) %> 
         </ul>
