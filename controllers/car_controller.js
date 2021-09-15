@@ -93,17 +93,12 @@ router.get('/car/:id', async (req, res, next) => {
     const allLapTimes = await LapTime.find({car: req.params.id}).populate("track");
     let foundLapTimes = allLapTimes
     let convertedTime= []
-    // console.log(allLapTimes[0].seconds);
     foundLapTimes.forEach((lapTime,index) => {
-      // console.log(lapTime.seconds)
       let seconds= lapTime.seconds
       let minutes= Math.floor(seconds /60);
       let remSecond= seconds %60;
       convertedTime= (`${minutes}.${remSecond}`)
-      // console.log(convertedTime)
-      // console.log(parseFloat(convertedTime).toFixed(2))
       foundLapTimes[index].seconds= (parseFloat(convertedTime).toFixed(2))
-      console.log(foundLapTimes[index].seconds)
     })
       const context = {
         car: foundCar,
