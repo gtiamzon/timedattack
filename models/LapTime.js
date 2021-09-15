@@ -14,9 +14,6 @@ const lapTimeSchema = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
 		ref: "Track",
   },
-  minutes: {
-    type: Number,
-  },
   seconds: {
     type: Number,
   },

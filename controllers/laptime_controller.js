@@ -23,7 +23,13 @@ router.get('/new', async (req, res, next) => {
 //LAPTIME FUNCTIONAL create
 router.post('/new', async (req, res) => {
   try {
-    const createdLapTime = await LapTime.create(req.body);
+    const createdLapTime = await LapTime.create({
+      user: req.body.user,
+      car: req.body.car,
+      track: req.body.track,
+      seconds: Number(req.body.minutes * 60) + Number(req.body.seconds),
+      date: req.body.date
+    });
     console.log("MADE A LAP", createdLapTime);
     res.redirect(`/profile/car/${req.body.car}`)
   } catch (error) {

@@ -88,12 +88,27 @@ router.delete('/car/:id', async (req, res, next) => {
 // NOTE CAR SHOW ROUTES
 
 router.get('/car/:id', async (req, res, next) => {
-  const foundCar= await Car.findById(req.params.id).populate("username");
-  const allLapTimes = await LapTime.find({car: req.params.id}).populate("track");
-    try {
+  try {
+    const foundCar= await Car.findById(req.params.id).populate("username");
+    const allLapTimes = await LapTime.find({car: req.params.id}).populate("track");
+    let foundLapTimes = allLapTimes
+    let convertedTime= []
+    // console.log(allLapTimes[0].seconds);
+    foundLapTimes.forEach((lapTime,index) => {
+      // console.log(lapTime.seconds)
+      let seconds= lapTime.seconds
+      let minutes= Math.floor(seconds /60);
+      let remSecond= seconds %60;
+      convertedTime= (`${minutes}.${remSecond}`)
+      // console.log(convertedTime)
+      // console.log(parseFloat(convertedTime).toFixed(2))
+      foundLapTimes[index].seconds= (parseFloat(convertedTime).toFixed(2))
+      console.log(foundLapTimes[index].seconds)
+    })
       const context = {
         car: foundCar,
-        lapTimes: allLapTimes
+        lapTimes: allLapTimes,
+        times: convertedTime,
       };
       return res.render("car_show", context);
     } catch (error) {
