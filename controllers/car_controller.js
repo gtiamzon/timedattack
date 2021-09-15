@@ -94,11 +94,14 @@ router.get('/car/:id', async (req, res, next) => {
     let foundLapTimes = allLapTimes
     let convertedTime= []
     foundLapTimes.forEach((lapTime,index) => {
+      let date = new Date(foundLapTimes[index].date)
       let seconds= lapTime.seconds
       let minutes= Math.floor(seconds /60);
       let remSecond= seconds %60;
       convertedTime= (`${minutes}.${remSecond}`)
       foundLapTimes[index].seconds= (parseFloat(convertedTime).toFixed(2))
+      foundLapTimes[index].date = date.toDateString();
+      console.log(foundLapTimes[index].date)
     })
       const context = {
         car: foundCar,
