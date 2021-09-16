@@ -3,8 +3,8 @@
 <%- include("partials/_head.ejs") %> 
 
 <body>
-  LAPTIME NEW BABY
   <%- include("partials/_nav.ejs") %> 
+  <div class= "registerForm mt-4 container-fluid">
   <form action="/laptime/new" method="POST">
 
     <div class="input-group input-group-sm mb-3">
@@ -12,7 +12,7 @@
     </div>
 
     <div class="input-group input-group-sm mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-sm">CAR</span>
+      <span for="validationDefault01" class="input-group-text" id="inputGroup-sizing-sm">CAR</span>
       <select class="form-select" name="car" aria-label="Default select example">
         <option selected disabled hidden value="">Select Your Car</option>
         <% cars.forEach(foundCars => { %> 
@@ -36,17 +36,19 @@
     </div>
 
     <div class="input-group input-group-sm mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-sm">TIME</span>
-      <input type="number" class="form-control" name="minutes" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"> :
-      <input type="number" class="form-control" name="seconds" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      <span class="input-group-text" id="inputGroup-sizing-sm" for="validationDefault04">TIME</span>
+      <input type="number" class="form-control" name="minutes" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" for="validationDefault04" required> :
+      <input type="number" class="form-control" name="seconds" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" for="validationDefault04" required>
     </div>
 
     <div class="input-group input-group-sm mb-3">
       <span class="input-group-text" id="inputGroup-sizing-sm">DATE</span>
-      <input type="date" name="date" class="form-control" name="modifications" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      <input type="date" name="date" class="form-control" name="modifications" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
     </div>
-    
-    <button type="submit" class="btn btn-primary mt-1">Create Lap</button>
-
+    <div>
+      <button type="submit" class="btn btn-primary">Create Lap</button>
+      <a class="btn btn-primary" onclick="history.back(-1)" role="button">Cancel</a>
+    </div>
   </form>
+</div>
 </body>
