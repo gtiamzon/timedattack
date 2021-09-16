@@ -14,7 +14,7 @@ router.post("/register", async (req,res) => {
     const foundUser = await User.exists({email: req.body.email});
     
     if(foundUser) {
-      return res.redirect("login");
+      return res.redirect("/login");
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -25,7 +25,7 @@ router.post("/register", async (req,res) => {
 
     return res.redirect("/login")
   } catch (error) {
-    console.log(error);
+    console.log(error); 
     return res.send(error);
   }
 });
@@ -48,7 +48,7 @@ router.post("/login", async (req,res) => {
 
     req.session.currentUser = {
       id: foundUser._id,
-      username: foundUser.username,
+      email: foundUser.email,
     };
 
     return res.redirect("/home")

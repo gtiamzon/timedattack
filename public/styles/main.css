@@ -196,3 +196,10 @@ section {
   box-shadow: 5px 5px #ef8354;
   transform: scale(1.01);
 }
+
+/* FORMS NOTE */
+.registerForm {
+  display: flex;
+  justify-content: center;
+  
+}

@@ -4,38 +4,31 @@
 
 <body>
   <%- include("partials/_nav.ejs") %> 
-  <form action="/profile/car/edit/<%= car.id %>?_method=PUT" method="POST">
-    
-    <div class="input-group input-group-sm mb-3">
-      <input type="hidden" class="form-control" name="username" value="<%= car.username %>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" >
-    </div>
-
-    <div class="input-group input-group-sm mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-sm">Make</span>
-      <input type="text" class="form-control" name="make"  value="<%= car.make %>"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-    </div>
-
-    <div class="input-group input-group-sm mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-sm">Model</span>
-      <input type="text" class="form-control" name="model"  value="<%= car.model %>"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-    </div>
-
-    <div class="input-group input-group-sm mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-sm">Tire</span>
-      <input type="text" class="form-control" name="tire"  value="<%= car.tire %>"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-    </div>
-
-    <div class="input-group input-group-sm mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-sm">image</span>
-      <input type="text" class="form-control" name="image"  value="<%= car.image %>"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-    </div>
-
-    <div class="input-group input-group-sm mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-sm">Modifications</span>
-      <input type="text" class="form-control" name="modifications"  value="<%= car.modifications %>"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-    </div>
-
-    <button type="submit" class="btn btn-primary mt-1">Update Car</button>
-
-  </form>
+  <div class= "registerForm mt-4 container-fluid">
+    <form action="/profile/car/edit/<%= car.id %>?_method=PUT" method="POST">
+      <div>
+        <label for="validationDefault01" class="form-label">Make</label>
+        <input type="text" name="make" class="form-control" id="validationDefault02" value="<%= car.make %> " required>
+      </div>
+      <div>
+        <label for="validationDefault01" class="form-label">Model</label>
+        <input type="text" name="model" class="form-control" id="validationDefault02" value="<%= car.model %>" required>
+      </div>
+      <div>
+        <label for="validationDefault03" class="form-label">Tire</label>
+        <input type="text" name="tire" class="form-control" id="validationDefault03" value="<%= car.tire %>" required>
+      </div>
+      <div>
+        <label for="validationDefault04" class="form-label">Image</label>
+        <input type="text" name="image" class="form-control" id="validationDefault04" value="<%= car.image %>" required>
+      </div>
+      <div>
+        <label for="validationDefault05" class="form-label">Modifications</label>
+        <input type="text" name="modifications" class="form-control" id="validationDefault05" value="<%= car.modifications %>" required>
+      <div class="mt-4">
+        <button class="btn btn-primary" type="submit">Update Car</button>
+        <a class="btn btn-primary" href="/profile/<%= car.username %> " role="button">Cancel</a>
+      </div>
+    </form>
+  </div>
 </body>

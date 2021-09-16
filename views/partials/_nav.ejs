@@ -12,7 +12,14 @@
           <li class="nav-item">
             <a class="nav-link navButton" href="/logout">Logout</a>
           </li>
-        <% } %>  
+        <% } else { %>  
+          <li class="nav-item">
+            <a href="/register" class="nav-link navButton">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link navButton" href="/login">Sign In</a>
+          </li>
+          <% } %> 
       </ul>
     </section>
   </div>

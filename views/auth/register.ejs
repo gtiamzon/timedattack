@@ -3,37 +3,54 @@
   <%- include("../partials/_head.ejs") %> 
 
   <body>
-    <%-  include("../partials/_nav.ejs") %>
+    <nav class="navbar navbar-expand-lg ">
+      <div class="container-fluid d-flex justify-content-between ">
+        <div class="logoBackground">
+          <a class="navbar-brand" href="/home">TimedAttack</a>
+        </div>
+        <section>
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                <a href="/register" class="nav-link navButton">Sign Up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link navButton" href="/login">Sign In</a>
+              </li>
+          </ul>
+        </section>
+      </div>
+    </nav>
+    <div class= "registerForm mt-4 container-fluid">
     <form action="/register" method="POST">
-
-      <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-sm">First Name</span>
-        <input type="text" class="form-control" name="firstName" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      <div>
+        <label for="validationDefault01" class="form-label">First Name</label>
+        <input type="text" name="firstName" class="form-control" id="validationDefault02" required>
       </div>
-  
-      <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-sm">Last Name</span>
-        <input type="text" class="form-control" name="lastName" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      <div>
+        <label for="validationDefault01" class="form-label">Last Name</label>
+        <input type="text" name="lastName" class="form-control" id="validationDefault02" required>
       </div>
-  
-      <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-sm">Email</span>
-        <input type="text" class="form-control" name="email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      <div>
+        <label for="validationDefault03" class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" id="validationDefault03" required>
       </div>
-  
-      <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-sm">Avatar</span>
-        <input type="text" class="form-control" name="avatar" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      <div>
+        <label for="validationDefault04" class="form-label">E-Mail</label>
+        <input type="email" name="email" class="form-control" id="validationDefault04" required>
       </div>
-  
-      <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-sm">Password</span>
-        <input type="text" class="form-control" name="password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      <div>
+        <label for="validationDefault05" class="form-label">Avatar</label>
+        <input type="text" name="avatar" class="form-control" id="validationDefault05" required>
       </div>
-  
-      <button type="submit" class="btn btn-primary mt-1">Register</button>
-  
+      <div>
+        <label for="validationDefault06" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="validationDefault06" required>
+      </div>
+      <div class="col-12 mt-4">
+        <button class="btn btn-primary" type="submit">Submit form</button>
+      </div>
     </form>
+  </div>
   </body>
 
 

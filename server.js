@@ -34,8 +34,8 @@ app.use(
 );
 
 app.use((req, res, next) => {
-  res.locals.user= req.session.currentUser;
-  return next();
+    res.locals.user= req.session.currentUser;
+    return next();
 });
 
 //middleware

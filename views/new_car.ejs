@@ -4,38 +4,35 @@
 
 <body>
   <%- include("partials/_nav.ejs") %> 
-  <form action="/profile/car" method="POST">
 
-    <div class="input-group input-group-sm mb-3">
-      <input type="hidden" class="form-control" name="username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value='<%= user.id %> ' >
-    </div>
-
-    <div class="input-group input-group-sm mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-sm">Make</span>
-      <input type="text" class="form-control" name="make" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-    </div>
-
-    <div class="input-group input-group-sm mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-sm">Model</span>
-      <input type="text" class="form-control" name="model" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-    </div>
-
-    <div class="input-group input-group-sm mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-sm">Tire</span>
-      <input type="text" class="form-control" name="tire" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-    </div>
-
-    <div class="input-group input-group-sm mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-sm">image</span>
-      <input type="text" class="form-control" name="image" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-    </div>
-
-    <div class="input-group input-group-sm mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-sm">Modifications</span>
-      <input type="text" class="form-control" name="modifications" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-    </div>
-
-    <button type="submit" class="btn btn-primary mt-1">Create Car</button>
-
-  </form>
+  <div class= "registerForm mt-4 container-fluid">
+    <form action="/profile/car" method="POST">
+      <div>
+        <input type="hidden" name="username" class="form-control" id="validationDefault02" value="<%= user.id %> " required>
+      </div>
+      <div>
+        <label for="validationDefault01" class="form-label">Make</label>
+        <input type="text" name="make" class="form-control" id="validationDefault02"  required>
+      </div>
+      <div>
+        <label for="validationDefault03" class="form-label">Model</label>
+        <input type="text" name="model" class="form-control" id="validationDefault03"  required>
+      </div>
+      <div>
+        <label for="validationDefault04" class="form-label">Tire</label>
+        <input type="text" name="tire" class="form-control" id="validationDefault04" required>
+      </div>
+      <div>
+        <label for="validationDefault05" class="form-label">Image</label>
+        <input type="text" name="image" class="form-control" id="validationDefault05" required>
+      </div>
+      <div>
+        <label for="validationDefault05" class="form-label">Modifications</label>
+        <input type="text" name="modifications" class="form-control" id="validationDefault05" required>
+      </div>
+      <div class="col-12 mt-4">
+        <button class="btn btn-primary" type="submit">Create Car</button>
+      </div>
+    </form>
+  </div>
 </body>
