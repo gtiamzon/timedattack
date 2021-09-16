@@ -98,10 +98,7 @@ router.get('/car/:id', async (req, res, next) => {
       let seconds= lapTime.seconds
       let minutes= Math.floor(seconds /60);
       let remSecond= seconds %60;
-      convertedTime= (`${minutes}.${remSecond}`)
-      foundLapTimes[index].seconds= (parseFloat(convertedTime).toFixed(2))
-      foundLapTimes[index].date = date.toDateString();
-      console.log(foundLapTimes[index].date)
+      lapTime.convertedTime= (`${minutes}:${remSecond}`)
     })
       const context = {
         car: foundCar,

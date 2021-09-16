@@ -39,12 +39,13 @@
         <ul class="list-group mt-5">
           <% lapTimes.forEach(allLapTimes => { %> 
             <li class="list-group-item">
-              <%= allLapTimes.user.firstName%>
-              <%= allLapTimes.user.lastName%>
-              <%= allLapTimes.car.make %>
-              <%= allLapTimes.car.model %>
-              <%= allLapTimes.car.tire %>
-              <%= allLapTimes.seconds %> (min.sec)  
+              <%= allLapTimes.user.firstName%> 
+              <%= allLapTimes.user.lastName%> --
+              <%= allLapTimes.car.make %> --
+              <%= allLapTimes.car.model %> --
+              <%= allLapTimes.car.tire %> --
+              <%= allLapTimes.date.toDateString() %> --
+              <%= allLapTimes.convertedTime %> (min:sec)  
             </li>
           <% }) %> 
         </ul>

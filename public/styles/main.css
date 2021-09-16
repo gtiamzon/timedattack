@@ -1,13 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;1,700&display=swap");
 
+html{
+  height: 100%;
+}
+
+body {
+  background-image: linear-gradient(  #ffffff, #2d3142 );
+  min-height: 100%;
+}
 /* LANDING PAGE NOTE */
 
 a {
+
   text-decoration: none;
   color:#ef8354;
 }
 
 a:hover {
   color: #2d3142;
+  transform: scale(1.01);
 }
 
 #landingCarousel img {
@@ -16,6 +27,7 @@ a:hover {
 
 body {
   background-color: #ffffff;
+  font-family: 'Cantarell', sans-serif;
 }
 
 
@@ -31,27 +43,46 @@ body {
 }
 
 #timed {
+  font-family: 'Cantarell', sans-serif;
+  font-weight: 700;
+  font-style: italic;
   color: #2d3142;
   font-size: 15vh;
+  transition: .5s;
+}
+
+#timed:hover {
+  text-shadow: 5px 5px #ef8354;
 }
 
 #attackLogo {
+  font-family: 'Cantarell', sans-serif;
+  font-weight: 700;
+  font-style: italic;
   color: #ef8354;
   font-size: 15vh;
+  transition: .5s;
 }
 
-#landingButton {
-  text-decoration: none;
-  color: #ef8354;
-  max-width: 100px;
-  background: rgba(18, 19, 26, .5);
+#attackLogo:hover {
+  text-shadow: 5px 5px #2d3142;
 }
 
-#landingButton:hover {
+.landButton {
   text-decoration: none;
-  color: #2d3142;
+  color :#ef8354;
+  font-family: 'Cantarell', sans-serif;
+  font-weight: bold;
+  font-size: 125%;
+  border-radius: 5px;
+  transition: .2s;
+  background-color: #2d3142;
+}
+
+.landButton:hover {
   background-color: #ef8354;
-  max-width: 100px;
+  color:#4f5d75;
+  transform: scale(1.01);
 }
 
 
@@ -59,6 +90,47 @@ body {
 
 nav {
   background-color: #4f5d75;
+}
+
+.navbar-brand {
+  border-radius: 5px;
+  font-family: 'Cantarell', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 225%;
+  transition: .2s;
+}
+
+.logoBackground {
+  border-radius: 5px;
+  transition: .2s;
+}
+
+.logoBackground:hover {
+  background-color:#ef8354 ;
+  transform: scale(1.01);
+}
+
+.navbar-brand:hover {
+  color: #4f5d75;
+  transform: scale(1.01);
+}
+
+.navButton {
+  text-decoration: none;
+  color :#ef8354;
+  font-family: 'Cantarell', sans-serif;
+  font-weight: bold;
+  font-size: 125%;
+  border-radius: 5px;
+  transition: .2s;
+
+}
+
+.navButton:hover {
+  background-color: #ef8354;
+  color:#4f5d75;
+  transform: scale(1.01);
 }
 
 /* track show carousel */
@@ -71,8 +143,24 @@ nav {
 
 .card {
   background-color: #4f5d75;
+  transition: .2s;
+}
+
+.card:hover {
+  box-shadow: 5px 5px #ef8354;
+  transform: scale(1.01);
 }
 
 .list-group-item {
   background-color: #bfc0c0;
+  color: #2d3142;
+}
+
+.card-title {
+  color: #ef8354;
+  font-weight: bold;
+}
+
+.list-group-item {
+  font-weight: bold;
 }
