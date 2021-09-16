@@ -1,13 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;1,700&display=swap");
 
-html{
-  height: 100%;
+html {
+  height: auto;
+  min-height: 100%;
+  background-size:cover;
 }
 
 body {
   background-image: linear-gradient(  #ffffff, #2d3142 );
-  min-height: 100%;
+  background-size: auto 100%; 
+  background-repeat: no-repeat;
 }
+
+.btn-primary {
+  background-color:#2d3142;
+  border: none;
+  transition: .2s;
+  color: #ef8354;
+}
+
+.btn-primary:hover {
+  background-color: #ef8354;
+  color: #2d3142;
+}
+
 /* LANDING PAGE NOTE */
 
 a {
@@ -133,13 +149,13 @@ nav {
   transform: scale(1.01);
 }
 
-/* track show carousel */
+/* track show carousel NOTE*/
 #trackCarousel img {
   height: 33vh;
   object-fit: cover;
 }
 
-/* CARD */
+/* CARD NOTE */
 
 .card {
   background-color: #4f5d75;
@@ -154,6 +170,7 @@ nav {
 .list-group-item {
   background-color: #bfc0c0;
   color: #2d3142;
+  font-weight: bold;
 }
 
 .card-title {
@@ -161,6 +178,21 @@ nav {
   font-weight: bold;
 }
 
-.list-group-item {
-  font-weight: bold;
+/* PROFILE NOTE */
+
+
+
+/* TRACK NOTE */
+section {
+  color: #ef8354;
+}
+
+.track-list {
+  border-radius: 5pc;
+  transition: .2s;
+}
+
+.track-list:hover {
+  box-shadow: 5px 5px #ef8354;
+  transform: scale(1.01);
 }

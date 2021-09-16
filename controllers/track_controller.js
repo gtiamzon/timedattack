@@ -13,9 +13,13 @@ router.get('/:id', async(req, res, next) => {
     foundLapTimes.forEach((lapTime, index) => {
       let seconds= lapTime.seconds
       let minutes= Math.floor(seconds /60);
-      let remSecond= seconds %60;
-      lapTime.convertedTime= (`${minutes}:${remSecond}`)
-      foundLapTimes[index].seconds= (parseFloat(convertedTime).toFixed(2))
+      lapTime.remSeconds= {};
+      if(seconds %60 < 10) {
+        lapTime.remSeconds = `0${seconds %60}`
+      } else {
+        lapTime.remSeconds = seconds %60
+      };
+      lapTime.convertedTime= (`${minutes}:${lapTime.remSeconds}`)
     })
     const context = {
       track: foundTrack,

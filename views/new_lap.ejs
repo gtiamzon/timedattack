@@ -8,8 +8,7 @@
   <form action="/laptime/new" method="POST">
 
     <div class="input-group input-group-sm mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-sm">USER</span>
-      <input type="text" class="form-control" name="user" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="<%= user.id %>">
+      <input type="hidden" class="form-control" name="user" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="<%= user.id %>">
     </div>
 
     <div class="input-group input-group-sm mb-3">
