@@ -66,6 +66,4 @@ app.get("/*", (req, res) => {
   res.render("404", context);
 });
 
-app.listen(4000, function(){
-  console.log("ON MY MOMMA ITS LIT ON PORT 4000. TYBG");
-});
+app.listen(process.env.PORT || 4000);
