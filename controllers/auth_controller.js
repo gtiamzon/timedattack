@@ -5,16 +5,17 @@ const { User } = require("../models");
 
 //register presentational
 router.get("/register", (req, res) => {
-  return res.render("auth/register");
+  const context = {error: null}
+  return res.render("auth/register", context);
 });
 
 //register functional 
 router.post("/register", async (req,res) => {
   try{
-    const foundUser = await User.exists({email: req.body.email});
-    
+    const foundUser = await User.exists({$or:[{username: req.body.username}, {email: req.body.email}]});
+ 
     if(foundUser) {
-      return res.redirect("/login");
+      throw new Error ("Username or Email already exists.")
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -26,25 +27,30 @@ router.post("/register", async (req,res) => {
     return res.redirect("/login")
   } catch (error) {
     console.log(error); 
-    return res.send(error);
+    const context = { error }
+    return res.render('auth/register', context );
   }
 });
 
 //login presentational 
 router.get("/login", (req, res) => {
-  return res.render("auth/login");
+  const context = {error: null}
+  return res.render("auth/login", context);
 });
 
 //login functional
 router.post("/login", async (req,res) => {
   try{
     const foundUser = await User.findOne({email: req.body.email});
-    if(!foundUser) 
-      return res.redirect("/register");
+    if(!foundUser) {
+      throw new Error ("Email or Password is incorrect. Sign up if you dont have an account.")
+    }
     
     const match = await bcrypt.compare(req.body.password, foundUser.password);
 
-    if(!match) return res.send("password invalid");
+    if(!match) {
+      throw new Error ("Email or Password is incorrect. Sign up if you dont have an account.")
+    };
 
     req.session.currentUser = {
       id: foundUser._id,
@@ -53,8 +59,9 @@ router.post("/login", async (req,res) => {
 
     return res.redirect("/home")
   } catch (error) {
-    console.log(error);
-    res.send(error);
+    console.log(error); 
+    const context = { error }
+    return res.render('auth/login', context );
   }
 });
 

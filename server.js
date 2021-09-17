@@ -47,10 +47,7 @@ app.use(methodOverride("_method"));
 
 //routes
 app.get("/", (req, res) => {
-  const context = {
-    error: req.error,
-  };
-  res.render("landing", context);
+  res.render("landing");
 });
 
 app.use("/home", controllers.home);

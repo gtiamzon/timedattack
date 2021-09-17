@@ -19,8 +19,13 @@
         <h1 class="logoHover" id="timed"><strong>TIMED</strong></h1>
         <h1 class="logoHover" id="attackLogo"><strong>ATTACK</strong></h1>
       </div>
-        <a href="/register" class="nav-link landButton m-1">Sign Up</a>
-        <a href="/login" class="nav-link landButton ">Sign In</a></button>
+      <% if(typeof user !== 'undefined') {%> 
+        <a href="/profile/<%= user.id %>" class="nav-link landButton m-1">Profile</a>
+        <a href="/logout" class="nav-link landButton ">Log Out</a></button>  
+      <% } else {%> 
+      <a href="/register" class="nav-link landButton m-1">Sign Up</a>
+      <a href="/login" class="nav-link landButton ">Sign In</a></button>
+      <% } %> 
       </div>
 </body>
 </html>
