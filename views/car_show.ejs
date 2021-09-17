@@ -28,7 +28,7 @@
               </li>
               <li class="list-group-item">Mods: <%= car.modifications %>
               </li>
-              <% if(user.id==car.username.id) { %>
+              <% if(typeof user !== 'undefined' && user.id==car.username.id) { %>
                 <li class="list-group-item d-flex justify-content-around">
                   <a class="btn btn-primary" href="/profile/car/edit/<%= car.id %>">Edit</a>
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal"
@@ -67,7 +67,7 @@
                             <%=allLapTimes.date.toDateString()%>
                           </li>
                         </ul>
-                          <% if(user.id==car.username.id) { %>
+                          <% if(typeof user !== 'undefined' && user.id==car.username.id) { %>
                             <div class="card-footer">
                               <a class="btn btn-primary" href="/laptime/edit/<%= allLapTimes.id %>"
                                 role="button">Edit</a>
