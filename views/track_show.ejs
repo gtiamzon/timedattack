@@ -36,20 +36,22 @@
           </div>
           <div class="col-8">
             <% lapTimes.forEach((allLapTimes,index) => { %>
+              <% if(allLapTimes.car) { %>
               <ul class="list-group mt-4 ">
-                <a href="/profile/car/<%= allLapTimes.car.id %> ">
+                <a href="/profile/car/<%= allLapTimes?.car?.id %> ">
                   <li class="list-group-item track-list">
                     <%= index+1 %>.
                     <%= allLapTimes.user.firstName%>
-                      <%= allLapTimes.user.lastName%> --
-                        <%= allLapTimes.car.make %> --
-                          <%= allLapTimes.car.model %> --
-                            <%= allLapTimes.car.tire %> --
-                              <%= allLapTimes.date.toDateString() %> --
-                                <%= allLapTimes.convertedTime %> (min:sec)
+                    <%= allLapTimes.user.lastName%> --
+                    <%= allLapTimes.car.make %> --
+                    <%= allLapTimes.car.model %> --
+                    <%= allLapTimes.car.tire %> --
+                    <%= allLapTimes.date.toDateString() %> --
+                    <%= allLapTimes.convertedTime %> (min:sec)
                   </li>
                 </a>
               </ul>
+              <% } %> 
                 <% }) %>
           </div>
         </div>

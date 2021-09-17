@@ -156,6 +156,8 @@ router.delete('/:id', async (req, res, next) => {
   try {
     const deletedUser = await User.findByIdAndDelete(req.params.id);
     const deletedCar = await Car.deleteMany({username: req.params.id});
+    const deletedLapTime = await LapTime.deleteMany({user: req.params.id})
+    await req.session.destroy();
     return res.redirect(`/`);
   } catch (error) {
     console.log(error);
