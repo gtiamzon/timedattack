@@ -8,7 +8,7 @@ The user will be able to:
 - post, edit, and delete lap times.
 
 ### User Stories
-The user will be people who enjoy driving on race tracks and want a place to view lap times and compare them to others to help improve. The user will start on the landing page where they can sign in or sign up. Then they will be redirected to the profile page where they can add a car to their garage. Once a car is added. They will be able to post lap times! If no car is added, they will not be able to post a lap time. When the user goes to a track show page, they will be able to filter lap times based on parameters they choose. Such as tire used, and car model. 
+The user will be people who enjoy driving on race tracks and want a place to view lap times and compare them to others to help improve. The user will start on the landing page where they can sign in or sign up. Then they will be redirected to the profile page where they can add a car to their garage. Once a car is added. They will be able to post lap times! When the user goes to a track show page, they will be able to filter lap times based on parameters they choose. Such as tire used, and car model. 
 
 ### Wire Frames
 - Landing page
