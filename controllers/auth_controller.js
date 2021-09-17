@@ -57,7 +57,7 @@ router.post("/login", async (req,res) => {
       email: foundUser.email,
     };
 
-    return res.redirect("/home")
+    return res.redirect(`/profile/${req.session.currentUser.id}`)
   } catch (error) {
     console.log(error); 
     const context = { error }

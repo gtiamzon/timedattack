@@ -17,7 +17,7 @@
                 <%= user.email %>
               </li>
             </ul>
-            <% if(user.id !== cars.username) { %>
+            <% if( currentUser == user.id) { %>
               <div class="card-footer">
                 <div class="d-flex justify-content-around mb-1">
                   <a class="btn btn-primary" href="/profile/<%= user.id %>/edit " role="button">Edit</a>
@@ -82,7 +82,7 @@
                             <%=allCars.modifications%>
                           </li>
                         </ul>
-                        <% if(user.id !== allCars.user) {%> 
+                        <% if(user.id == allCars.username) {%> 
                         <div class="card-footer">
                           <a class="btn btn-primary" href="/profile/car/edit/<%= allCars.id %> " role="button">Edit</a>
                           <button type="button" class="btn btn-primary" data-bs-toggle="modal"

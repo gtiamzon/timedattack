@@ -7,11 +7,13 @@ const { create } = require("../models/User");
 // show
 router.get('/:id', async(req, res, next) => {
   try {
+    var currentUser = req.session.currentUser.id;
     const foundUser = await User.findById(req.params.id);
     const allCars = await Car.find({});
     const context = {
       cars: allCars,
-      user: foundUser
+      user: foundUser,
+      currentUser: currentUser
     };
     return res.render("profile", context);
   } catch(error) {
