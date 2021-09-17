@@ -21,7 +21,13 @@
       </div>
     </nav>
     <div class= "registerForm mt-4 container-fluid">
-    <form action="/register" method="POST">
+      
+      <form action="/register" method="POST">
+        <% if(error) { %> 
+          <div>
+            <p> <%= error %>  </p>
+          </div>
+        <% } %> 
       <div>
         <label for="validationDefault01" class="form-label">First Name</label>
         <input type="text" name="firstName" class="form-control" id="validationDefault02" required>

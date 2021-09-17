@@ -15,9 +15,11 @@
         <div class="row">
           <div class="col-2">
             <ul class="list-group mt-5">
-              <li class="list-group-item">Owner: <%= car.username.firstName %>
-                  <%= car.username.lastName %>
-              </li>
+              <a href="/profile/<%= car.username.id %> ">
+                <li class="list-group-item">Owner: <%= car.username.firstName %>
+                    <%= car.username.lastName %>
+                </li>
+              </a>
               <li class="list-group-item">Make: <%= car.make %>
               </li>
               <li class="list-group-item">Model: <%= car.model %>
@@ -26,9 +28,11 @@
               </li>
               <li class="list-group-item">Mods: <%= car.modifications %>
               </li>
-              <li class="list-group-item d-flex justify-content-around">
+              <% if(user.id==car.username.id) { %>
+                <li class="list-group-item d-flex justify-content-around">
                   <a class="btn btn-primary" href="/laptime/new">Add Laptime</a>
-              </li>
+                </li>
+                <% }%>
             </ul>
           </div>
           <div class="col-9">
@@ -39,8 +43,7 @@
                     <div class="col">
                       <div class="card m-4" style="width: 18rem;">
                         <a href="/track/<%= allLapTimes.track.id %> ">
-                          <img src="<%= allLapTimes.track.icon %>" 
-                          class="card-img-top " alt="icon">
+                          <img src="<%= allLapTimes.track.icon %>" class="card-img-top " alt="icon">
                         </a>
                         </a>
                         <div class="card-body">
@@ -57,13 +60,16 @@
                             <%=allLapTimes.date.toDateString()%>
                           </li>
                         </ul>
-                        <div class="card-footer">
-                          <a class="btn btn-primary" href="/laptime/edit/<%= allLapTimes.id %>" role="button">Edit</a>
-                          <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                          data-bs-target="#exampleModal-<%= allLapTimes.id %>">
-                          Delete
-                        </button>
-                      </div>
+                          <% if(user.id==car.username.id) { %>
+                            <div class="card-footer">
+                              <a class="btn btn-primary" href="/laptime/edit/<%= allLapTimes.id %>"
+                                role="button">Edit</a>
+                              <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal-<%= allLapTimes.id %>">
+                                Delete
+                              </button>
+                            </div>
+                          <% }%>
                       </div>
                     </div>
                     <!-- DELETE MODAL for car -->
@@ -72,7 +78,7 @@
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">YOO WAIIIT</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">DELETE LAP TIME</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
@@ -81,9 +87,9 @@
                                   <%= car.model %> ?
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCEL</button>
                             <form action="/laptime/<%= allLapTimes.id %>?_method=DELETE" method="POST">
-                              <input type="submit" class="btn btn-danger" value="YERRRR DELETE IT">
+                              <input type="submit" class="btn btn-danger" value="DELETE">
                             </form>
                           </div>
                         </div>

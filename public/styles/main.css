@@ -203,3 +203,22 @@ section {
   justify-content: center;
   
 }
+
+/* 404 */
+
+.crash {
+  width: 50%;
+  height: 50%;
+}
+
+.crashButton {
+  background-color: #2d3142;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: .3s;
+}
+
+.crashButton:hover {
+  background-color: #ef8354;
+}

@@ -27,9 +27,11 @@
               </li>
               <li class="list-group-item">Length: <%= track.length %> miles
               </li>
+              <%if(typeof user !== 'undefined') {%> 
               <li class="list-group-item">
                 <a class="btn btn-primary" href="/laptime/new">Add Laptime</a>
               </li>
+              <% } %> 
             </ul>
           </div>
           <div class="col-8">

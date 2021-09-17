@@ -2,9 +2,15 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <%- include("partials/_nav.ejs") %>
-    <body>
-      <img src="https://i.makeagif.com/media/1-25-2016/C3dI1W.gif" alt="subaru crash">
-      <h1>Damn wrong way foo</h1>
-    </body>
+  <%- include("partials/_head.ejs") %>
+  <body class="text-center">
+    <%- include("partials/_nav.ejs") %>
+      <div>
+        <img src="https://i.makeagif.com/media/1-25-2016/C3dI1W.gif" class="mt-4 crash" alt="subaru crash">
+      </div>
+      <h1>Looks like you went the wrong way!</h1>
+
+      <h1><a class="crashButton" href="/">Lets Land in the right place</a></h1>
+    </div>
+  </body>
 </html>
