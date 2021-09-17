@@ -149,6 +149,11 @@ nav {
   transform: scale(1.01);
 }
 
+.info-button {
+  margin-top: 50%;
+  transition: .3s;
+}
+
 /* track show carousel NOTE*/
 #trackCarousel img {
   height: 33vh;
@@ -221,4 +226,26 @@ section {
 
 .crashButton:hover {
   background-color: #ef8354;
+}
+
+.gerald {
+  height: 30%;
+  width: 30%; 
+  transition: .3s;
+}
+
+.gerald:hover{
+  box-shadow: 5px 5px #ef8354;
+}
+
+.about-me {
+  
+}
+
+.about-bio {
+  height: 30%;
+  width: 30%;
+  margin-top: 40px;
+  margin-left: 50px;
+  background-color: #ffffff;
 }

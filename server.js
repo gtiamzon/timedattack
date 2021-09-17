@@ -49,6 +49,9 @@ app.use(methodOverride("_method"));
 app.get("/", (req, res) => {
   res.render("landing");
 });
+app.get("/about", (req, res) => {
+  res.render("about");
+});
 
 app.use("/home", controllers.home);
 app.use("/profile", controllers.car);

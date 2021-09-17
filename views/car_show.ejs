@@ -30,6 +30,13 @@
               </li>
               <% if(user.id==car.username.id) { %>
                 <li class="list-group-item d-flex justify-content-around">
+                  <a class="btn btn-primary" href="/profile/car/edit/<%= car.id %>">Edit</a>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#exampleModal-<%= car.id %>">
+                    Delete
+                  </button>
+                </li>
+                <li class="list-group-item d-flex justify-content-around">
                   <a class="btn btn-primary" href="/laptime/new">Add Laptime</a>
                 </li>
                 <% }%>
@@ -102,6 +109,31 @@
           </div>
         </div>
       </div>
+
+    <!-- DELETE MODAL for car -->
+    <div class="modal fade" id="exampleModal-<%= car.id %>" tabindex="-1"
+      aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">DELETE CAR</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete your <strong>
+              <%= car.make %>
+                <%= car.model %>
+            </strong> ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCEL</button>
+            <form action="/profile/car/<%= car.id %>?_method=DELETE" method="POST">
+              <input type="submit" class="btn btn-danger" value="DELETE">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 
 </html>
