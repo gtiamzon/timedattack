@@ -1,6 +1,6 @@
 ### Timed Attack
 An app to view and compare lap times.
-My objective is to create an app where you can see a list of tracks and see the top times of users given the track you use. The user can filter the lap times to help align what their looking for to compare themselves to others and help improve on their own lap time.
+My objective is to create an app where you can see a list of tracks and see the top times of users given the track you use. The user can view the lap times from fastest to slowest to help align what their looking for to compare themselves to others and help improve on their own lap time.
 
 The user will be able to:
 - Have a profile with their "garage" of cars
